@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Greeting our client!"; // Sets the title of the page
+}
+
+<style>
+    h2 {
+        color: #007bff; /* Blue color for headings */
+        margin-bottom: 20px; /* Add some space below the heading */
+    }
+
+    ul {
+        padding-left: 0; /* Remove default left padding for the list */
+        margin-bottom: 20px; /* Add some space below the list */
+    }
+
+    li {
+        color: #28a745; /* Green color for list items */
+        list-style-type: none; /* Remove bullet points */
+    }
+
+    .greeting-message {
+        color: #343a40; /* Dark color for greeting message */
+        font-size: 16px; /* Adjust font size for better readability */
+        margin-bottom: 20px; /* Add some space below the greeting message */
+    }
+</style>
+
+<h2>Welcome</h2> <!-- Heading for welcome message -->
+
+<p class="greeting-message">Welcome to our Book Catalogue! We're delighted to have you here. Whether you're a seasoned reader or just starting your literary journey, we have something for everyone. Explore our vast collection of books and immerse yourself in the world of literature.</p> <!-- Welcome message -->
+
+<ul>
+    @{
+        for (int i = 0; i < (int)(ViewData["Count"] ?? 0); i++)
+        {
+            <li>@ViewData["Greeting"]</li> <!-- Display greetings in a list -->
+        }
+    }
+</ul>

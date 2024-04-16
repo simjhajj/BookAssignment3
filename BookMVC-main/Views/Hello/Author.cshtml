@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+    The code below was copied from the link above
+*@
+@{
+    ViewData["Title"] = "Index"; // Sets the title of the page
+}
+
+<style>
+    h2 {
+        color: #007bff; /* Blue color for headings */
+        margin-bottom: 20px; /* Add some space below the heading */
+    }
+
+    p {
+        color: #6c757d; /* Gray color for paragraphs */
+        margin-bottom: 20px; /* Add some space below the paragraph */
+    }
+
+    li {
+        color: #28a745; /* Green color for list items */
+        list-style-type: none; /* Remove bullet points */
+    }
+
+    .author-info {
+        color: #343a40; /* Dark color for author information */
+        margin-bottom: 20px; /* Add some space below the author info */
+    }
+</style>
+
+<h2>Author's Greetings</h2> <!-- Heading for author's greetings -->
+
+<p>Welcome to the Author's Page!</p> <!-- Welcome message -->
+
+<p>This is a sample view template named "Author.cshtml".</p> <!-- Information about the view -->
+
+<ul>
+    @for (int i = 0; i < (int)(ViewData["Count"] ?? 0); i++)
+    {
+        <li>@ViewData["Greeting"]</li> <!-- Display greetings in a list -->
+    }
+</ul>
+
+<div class="author-info">
+    <h3>About the Authors</h3> <!-- Heading for author information -->
+    <p>Our book collection features works from a diverse group of talented authors. From bestselling novelists to emerging writers, each author brings a unique perspective and storytelling style to their work.</p> <!-- Information about featured authors -->
+    <p>Learn more about our featured authors and explore their contributions to the world of literature:</p> <!-- Invitation to learn more about authors -->
+    <ul>
+        <li>John Doe - Author of "The Mystery of the Lost Key"</li> <!-- Information about author John Doe -->
+        <li>Jane Smith - Author of "A Journey to Remember"</li> <!-- Information about author Jane Smith -->
+        <li>Michael Johnson - Author of "The Quest for Adventure"</li> <!-- Information about author Michael Johnson -->
+    </ul>
+</div>
