@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title with dynamic ViewData -->
+    <title>@ViewData["Title"] - Books Catalogue</title>
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Book_Assignment3.styles.css" asp-append-version="true" />
+    <!-- Internal CSS styles -->
+    <style>
+        /* Custom styles for navigation bar */
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: black;
+            font-weight: bold; /* Make the brand bold */
+        }
+
+        .navbar-nav .nav-link {
+            margin-right: 10px;
+            color: #333; /* Change link color */
+            font-weight: bold; /* Make links bold */
+            transition: color 0.3s; /* Smooth transition for link color */
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #007bff; /* Change link color on hover */
+            }
+
+        /* Add a subtle shadow to the navbar */
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Style the footer */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        /* Add some padding to the main content */
+        main {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+            <div class="container">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Book ASP.NET MVC App</a>
+                <!-- Toggle button for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">BooksCatalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Hello" asp-action="Index">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Hello" asp-action="Author">Author</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main content section -->
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody() <!-- Render the main content here -->
+        </main>
+    </div>
+    <!-- Footer section -->
+    <footer class="border-top footer">
+        <div class="container">
+            &copy; 2023 - Book ASP.NET MVC App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <!-- External JavaScript files -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false) <!-- Render additional scripts if any -->
+</body>
+</html>
