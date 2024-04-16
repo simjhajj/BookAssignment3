@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Book_Assignment3.Models.Book> // Defines the model for this view as a collection of books
+
+@{
+    ViewData["Title"] = "Index"; // Sets the title of the page
+}
+
+<style>
+    /* Table styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+    }
+
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+    /* Action links styles */
+    .action-link {
+        color: #007bff;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+        .action-link:hover {
+            text-decoration: underline;
+        }
+
+    /* Custom styles */
+    h1 {
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+
+<h1>Books Catalogue</h1> <!-- Heading for the books catalogue -->
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a> <!-- Button to create a new book -->
+</p>
+<table class="table"> <!-- Table to display the list of books -->
+    <thead>
+        <tr>
+            <th>Title</th> <!-- Column for book title -->
+            <th>Publication Date</th> <!-- Column for publication date -->
+            <th>Genre</th> <!-- Column for genre -->
+            <th>Price</th> <!-- Column for price -->
+            <th>Actions</th> <!-- Column for actions (edit, details, delete) -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td> <!-- Display book title -->
+                <td>@Html.DisplayFor(modelItem => item.PublicationDate)</td> <!-- Display publication date -->
+                <td>@Html.DisplayFor(modelItem => item.Genre)</td> <!-- Display genre -->
+                <td>@Html.DisplayFor(modelItem => item.Price)</td> <!-- Display price -->
+                <td>
+                    <!-- Action links for edit, details, and delete -->
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="action-link">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="action-link">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="action-link">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

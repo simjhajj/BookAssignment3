@@ -1,0 +1,80 @@
+﻿@model Book_Assignment3.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    /* Center the content */
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust as needed */
+        flex-direction: column; /* Align items vertically */
+    }
+
+    h1, h4 {
+        text-align: center; /* Center align headings */
+        color: #007bff; /* Blue color for headings */
+        margin-bottom: 20px; /* Add some space below the headings */
+    }
+
+    .row {
+        margin-bottom: 20px; /* Add space between rows */
+    }
+
+    .col-sm-2 {
+        font-weight: bold; /* Make column titles bold */
+    }
+
+    .btn {
+        color: #007bff; /* Blue color for buttons */
+        text-decoration: none; /* Remove underline from buttons */
+        margin-right: 10px; /* Add space between buttons */
+    }
+
+        .btn:hover {
+            text-decoration: underline; /* Underline buttons on hover */
+        }
+</style>
+
+<div class="content-container">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Book</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PublicationDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PublicationDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn">Edit</a> |
+        <a asp-action="Index" class="btn">Back to List</a>
+    </div>
+</div>
